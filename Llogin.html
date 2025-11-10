@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多用户烟花登录系统</title>
     <style>
-        /* 样式保持不变，与之前相同 */
         * {
             margin: 0;
             padding: 0;
@@ -236,7 +235,7 @@
             <div class="error-message" id="errorMessage"></div>
             
             <div class="user-list">
-                <h3>👥 25个测试用户</h3>
+                <h3>👥 测试用户列表</h3>
                 <div class="user-grid" id="userGrid">
                     <!-- 用户列表动态生成 -->
                 </div>
@@ -247,31 +246,8 @@
     <script>
         // GitHub Pages兼容的用户数据
         const users = {
-            "user1": { password: "pass1", name: "用户1", page: "./user1/fireworks.html" },
-            "user2": { password: "pass2", name: "用户2", page: "./user2/fireworks.html" },
-            "user3": { password: "pass3", name: "用户3", page: "./user3/fireworks.html" },
-            "user4": { password: "pass4", name: "用户4", page: "./user4/fireworks.html" },
-            "user5": { password: "pass5", name: "用户5", page: "./user5/fireworks.html" },
-            "user6": { password: "pass6", name: "用户6", page: "./user6/fireworks.html" },
-            "user7": { password: "pass7", name: "用户7", page: "./user7/fireworks.html" },
-            "user8": { password: "pass8", name: "用户8", page: "./user8/fireworks.html" },
-            "user9": { password: "pass9", name: "用户9", page: "./user9/fireworks.html" },
-            "user10": { password: "pass10", name: "用户10", page: "./user10/fireworks.html" },
-            "user11": { password: "pass11", name: "用户11", page: "./user11/fireworks.html" },
-            "user12": { password: "pass12", name: "用户12", page: "./user12/fireworks.html" },
-            "user13": { password: "pass13", name: "用户13", page: "./user13/fireworks.html" },
-            "user14": { password: "pass14", name: "用户14", page: "./user14/fireworks.html" },
-            "user15": { password: "pass15", name: "用户15", page: "./user15/fireworks.html" },
-            "user16": { password: "pass16", name: "用户16", page: "./user16/fireworks.html" },
-            "user17": { password: "pass17", name: "用户17", page: "./user17/fireworks.html" },
-            "user18": { password: "pass18", name: "用户18", page: "./user18/fireworks.html" },
-            "user19": { password: "pass19", name: "用户19", page: "./user19/fireworks.html" },
-            "user20": { password: "pass20", name: "用户20", page: "./user20/fireworks.html" },
-            "user21": { password: "pass21", name: "用户21", page: "./user21/fireworks.html" },
-            "user22": { password: "pass22", name: "用户22", page: "./user22/fireworks.html" },
-            "user23": { password: "pass23", name: "用户23", page: "./user23/fireworks.html" },
-            "user24": { password: "pass24", name: "用户24", page: "./user24/fireworks.html" },
-            "user25": { password: "pass25", name: "用户25", page: "./user25/fireworks.html" }
+            "user1": { password: "pass1", name: "用户1", page: "user1/fireworks.html" },
+            "user2": { password: "pass2", name: "用户2", page: "user2/fireworks.html" }
         };
 
         // DOM元素
@@ -325,11 +301,10 @@
             const password = document.getElementById('password').value;
             
             if (users[username] && users[username].password === password) {
-                // 使用绝对路径跳转，避免GitHub Pages路径问题
+                // 使用相对路径跳转
                 const userPage = users[username].page;
                 
-                // 调试信息
-                console.log('跳转到:', userPage);
+                console.log('登录成功，跳转到:', userPage);
                 console.log('当前URL:', window.location.href);
                 
                 // 直接跳转
@@ -353,295 +328,8 @@
             createParticles();
             generateUserList();
             
-            // 调试信息
             console.log('页面加载完成');
             console.log('用户数据:', Object.keys(users).length + '个用户');
-        });
-    </script>
-</body>
-</html>            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ff6b6b, #ffa726);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 2.2em;
-        }
-        
-        .subtitle {
-            color: #7f8c8d;
-            margin-bottom: 35px;
-            font-size: 1.1em;
-        }
-        
-        .input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #34495e;
-            font-weight: 600;
-        }
-        
-        .input-wrapper {
-            position: relative;
-        }
-        
-        input {
-            width: 100%;
-            padding: 16px 20px 16px 50px;
-            border: 2px solid #e1e8ed;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-            background: white;
-        }
-        
-        .input-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: #7f8c8d;
-        }
-        
-        .btn {
-            color: white;
-            border: none;
-            padding: 18px 20px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .login-btn {
-            background: linear-gradient(135deg, #e74c3c, #e67e22);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(231, 76, 60, 0.4);
-        }
-        
-        .error-message {
-            color: #e74c3c;
-            margin-top: 15px;
-            font-size: 14px;
-            display: none;
-            background: rgba(231, 76, 60, 0.1);
-            padding: 12px;
-            border-radius: 8px;
-        }
-        
-        .user-list {
-            margin-top: 30px;
-            text-align: left;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            border: 1px solid #e1e8ed;
-        }
-        
-        .user-list h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .user-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-        }
-        
-        .user-item {
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            border-left: 4px solid #3498db;
-            font-size: 13px;
-            color: #5d6d7e;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .user-item:hover {
-            background: #e8f4fc;
-            transform: translateY(-2px);
-        }
-        
-        .user-item strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="bg-particles" id="bgParticles"></div>
-    
-    <div class="container">
-        <div class="login-card">
-            <div class="logo">🎆</div>
-            <h1>多用户烟花系统</h1>
-            <div class="subtitle">每个用户都有专属烟花效果</div>
-            
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="username">用户名</label>
-                    <div class="input-wrapper">
-                        <div class="input-icon">👤</div>
-                        <input type="text" id="username" placeholder="输入用户名" required>
-                    </div>
-                </div>
-                
-                <div class="input-group">
-                    <label for="password">密码</label>
-                    <div class="input-wrapper">
-                        <div class="input-icon">🔒</div>
-                        <input type="password" id="password" placeholder="输入密码" required>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn login-btn">
-                    🎇 观看专属烟花
-                </button>
-            </form>
-            
-            <div class="error-message" id="errorMessage"></div>
-            
-            <div class="user-list">
-                <h3>👥 25个测试用户</h3>
-                <div class="user-grid" id="userGrid">
-                    <!-- 用户列表动态生成 -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // 用户数据 - 每个用户对应一个专属文件夹
-        const users = {
-            "user1": { password: "pass1", name: "用户1", folder: "user1" },
-            "user2": { password: "pass2", name: "用户2", folder: "user2" },
-            "user3": { password: "pass3", name: "用户3", folder: "user3" },
-            "user4": { password: "pass4", name: "用户4", folder: "user4" },
-            "user5": { password: "pass5", name: "用户5", folder: "user5" },
-            "user6": { password: "pass6", name: "用户6", folder: "user6" },
-            "user7": { password: "pass7", name: "用户7", folder: "user7" },
-            "user8": { password: "pass8", name: "用户8", folder: "user8" },
-            "user9": { password: "pass9", name: "用户9", folder: "user9" },
-            "user10": { password: "pass10", name: "用户10", folder: "user10" },
-            "user11": { password: "pass11", name: "用户11", folder: "user11" },
-            "user12": { password: "pass12", name: "用户12", folder: "user12" },
-            "user13": { password: "pass13", name: "用户13", folder: "user13" },
-            "user14": { password: "pass14", name: "用户14", folder: "user14" },
-            "user15": { password: "pass15", name: "用户15", folder: "user15" },
-            "user16": { password: "pass16", name: "用户16", folder: "user16" },
-            "user17": { password: "pass17", name: "用户17", folder: "user17" },
-            "user18": { password: "pass18", name: "用户18", folder: "user18" },
-            "user19": { password: "pass19", name: "用户19", folder: "user19" },
-            "user20": { password: "pass20", name: "用户20", folder: "user20" },
-            "user21": { password: "pass21", name: "用户21", folder: "user21" },
-            "user22": { password: "pass22", name: "用户22", folder: "user22" },
-            "user23": { password: "pass23", name: "用户23", folder: "user23" },
-            "user24": { password: "pass24", name: "用户24", folder: "user24" },
-            "user25": { password: "pass25", name: "用户25", folder: "user25" }
-        };
-
-        // DOM元素
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-        const userGrid = document.getElementById('userGrid');
-        const bgParticles = document.getElementById('bgParticles');
-
-        // 创建背景粒子
-        function createParticles() {
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                const size = Math.random() * 5 + 2;
-                const left = Math.random() * 100;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${left}vw`;
-                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                bgParticles.appendChild(particle);
-            }
-        }
-
-        // 生成用户列表
-        function generateUserList() {
-            userGrid.innerHTML = '';
-            Object.keys(users).forEach(username => {
-                const user = users[username];
-                const userNumber = username.slice(4);
-                
-                const userItem = document.createElement('div');
-                userItem.className = 'user-item';
-                userItem.innerHTML = `
-                    <strong>${user.name}</strong>
-                    <small>账号: ${username}<br>密码: pass${userNumber}</small>
-                `;
-                userItem.addEventListener('click', () => {
-                    document.getElementById('username').value = username;
-                    document.getElementById('password').value = `pass${userNumber}`;
-                });
-                userGrid.appendChild(userItem);
-            });
-        }
-
-        // 登录表单提交
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
-            
-            if (users[username] && users[username].password === password) {
-                // 登录成功，跳转到用户专属文件夹的烟花页面
-                const userFolder = users[username].folder;
-                window.location.href = `${userFolder}/fireworks.html`;
-            } else {
-                showError('❌ 用户名或密码错误！');
-            }
-        });
-
-        // 显示错误消息
-        function showError(message) {
-            errorMessage.textContent = message;
-            errorMessage.style.display = 'block';
-            setTimeout(() => {
-                errorMessage.style.display = 'none';
-            }, 3000);
-        }
-
-        // 初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            generateUserList();
         });
     </script>
 </body>
